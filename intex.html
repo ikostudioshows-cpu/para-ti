@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti 💙</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         FONDO PRINCIPAL
+    ====================================== -->
+
+    <div class="fondo">
+
+
+        <!-- CORAZONES -->
+
+        <span class="corazon c1">♡</span>
+        <span class="corazon c2">♡</span>
+        <span class="corazon c3">♡</span>
+        <span class="corazon c4">♡</span>
+        <span class="corazon c5">♡</span>
+        <span class="corazon c6">♡</span>
+        <span class="corazon c7">♡</span>
+        <span class="corazon c8">♡</span>
+        <span class="corazon c9">♡</span>
+        <span class="corazon c10">♡</span>
+
+
+        <!-- =====================================
+             VENTANA DE LA GALAXIA
+        ====================================== -->
+
+        <main class="ventana">
+
+
+            <!-- GALAXIA -->
+
+            <div class="galaxia"></div>
+
+
+            <!-- =================================
+                 SECCIÓN DESLIZABLE DE AUTOS
+            ================================== -->
+
+            <div class="zona-autos">
+
+                <div class="carrusel" id="carrusel">
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro1.png" alt="Hot Wheels 1">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro2.png" alt="Hot Wheels 2">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro3.png" alt="Hot Wheels 3">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro4.png" alt="Hot Wheels 4">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro5.png" alt="Hot Wheels 5">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro6.png" alt="Hot Wheels 6">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro7.png" alt="Hot Wheels 7">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro8.png" alt="Hot Wheels 8">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro9.png" alt="Hot Wheels 9">
+                    </div>
+
+
+                    <div class="hotwheel">
+                        <img src="carros/carro10.png" alt="Hot Wheels 10">
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 ECLIPSE
+            ====================================== -->
+
+            <div class="eclipse" id="eclipse">
+
+
+                <!-- MENSAJE INICIAL -->
+
+                <div class="mensaje">
+
+                    Per il ragazzo<br>
+                    dagli occhi belli
+
+                </div>
+
+
+                <!-- MENSAJE DESPUÉS DEL CLIC -->
+
+                <div class="te-amo">
+
+                    Te amo
+
+                </div>
+
+
+            </div>
+
+
+            <!-- INDICADOR -->
+
+            <div class="indicador">
+
+                desliza para ver los autos
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+
+        /* =====================================
+           ECLIPSE → TE AMO
+        ====================================== */
+
+        const eclipse =
+            document.getElementById("eclipse");
+
+
+        let mensajeActivado = false;
+
+
+        document.addEventListener("click", function () {
+
+
+            if (!mensajeActivado) {
+
+
+                eclipse.classList.add("amor");
+
+
+                mensajeActivado = true;
+
+
+            }
+
+
+        });
+
+
+
+        /* =====================================
+           CARRUSEL DE AUTOS
+        ====================================== */
+
+        const carrusel =
+            document.getElementById("carrusel");
+
+
+        let moviendo = false;
+
+        let posicionInicial = 0;
+
+        let desplazamientoInicial = 0;
+
+
+
+        /* MOUSE */
+
+        carrusel.addEventListener(
+            "mousedown",
+            iniciarMovimiento
+        );
+
+
+        document.addEventListener(
+            "mousemove",
+            moverCarrusel
+        );
+
+
+        document.addEventListener(
+            "mouseup",
+            terminarMovimiento
+        );
+
+
+
+        /* CELULAR */
+
+        carrusel.addEventListener(
+            "touchstart",
+            iniciarMovimiento,
+            { passive: true }
+        );
+
+
+        document.addEventListener(
+            "touchmove",
+            moverCarrusel,
+            { passive: true }
+        );
+
+
+        document.addEventListener(
+            "touchend",
+            terminarMovimiento
+        );
+
+
+
+        /* =====================================
+           INICIAR
+        ====================================== */
+
+        function iniciarMovimiento(e) {
+
+
+            moviendo = true;
+
+
+            if (e.type === "touchstart") {
+
+                posicionInicial =
+                    e.touches[0].clientX;
+
+            } else {
+
+                posicionInicial =
+                    e.clientX;
+
+            }
+
+
+            desplazamientoInicial =
+                obtenerPosicion();
+
+
+        }
+
+
+
+        /* =====================================
+           MOVER
+        ====================================== */
+
+        function moverCarrusel(e) {
+
+
+            if (!moviendo) return;
+
+
+            let posicionActual;
+
+
+            if (e.type === "touchmove") {
+
+                posicionActual =
+                    e.touches[0].clientX;
+
+            } else {
+
+                posicionActual =
+                    e.clientX;
+
+            }
+
+
+            let diferencia =
+                posicionActual - posicionInicial;
+
+
+            let nuevaPosicion =
+                desplazamientoInicial + diferencia;
+
+
+            carrusel.style.left =
+                nuevaPosicion + "px";
+
+
+        }
+
+
+
+        /* =====================================
+           TERMINAR
+        ====================================== */
+
+        function terminarMovimiento() {
+
+            moviendo = false;
+
+        }
+
+
+
+        /* =====================================
+           POSICIÓN ACTUAL
+        ====================================== */
+
+        function obtenerPosicion() {
+
+            let estilo =
+                window.getComputedStyle(carrusel);
+
+
+            return parseFloat(estilo.left) || 0;
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

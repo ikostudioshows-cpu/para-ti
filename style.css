@@ -1,0 +1,760 @@
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================
+   FONDO AZUL
+===================================== */
+
+.fondo {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            #6d91bd,
+            #294b72 45%,
+            #071525 100%
+        );
+
+}
+
+
+/* =====================================
+   CORAZONES
+===================================== */
+
+.corazon {
+
+    position: absolute;
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px white;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 20px #dcecff;
+
+    opacity: 0.5;
+
+    animation: flotar 5s ease-in-out infinite;
+
+    pointer-events: none;
+
+}
+
+
+.c1 {
+    top: 5%;
+    left: 7%;
+    font-size: 70px;
+}
+
+
+.c2 {
+    top: 15%;
+    right: 8%;
+    font-size: 100px;
+}
+
+
+.c3 {
+    top: 42%;
+    left: -20px;
+    font-size: 120px;
+}
+
+
+.c4 {
+    top: 55%;
+    right: -20px;
+    font-size: 110px;
+}
+
+
+.c5 {
+    bottom: 10%;
+    left: 10%;
+    font-size: 90px;
+}
+
+
+.c6 {
+    bottom: 5%;
+    right: 12%;
+    font-size: 70px;
+}
+
+
+.c7 {
+    top: 75%;
+    left: 40%;
+    font-size: 50px;
+}
+
+
+.c8 {
+    top: 30%;
+    left: 45%;
+    font-size: 35px;
+}
+
+
+.c9 {
+    top: 10%;
+    left: 35%;
+    font-size: 45px;
+}
+
+
+.c10 {
+    bottom: 25%;
+    right: 35%;
+    font-size: 60px;
+}
+
+
+@keyframes flotar {
+
+    0% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+}
+
+
+/* =====================================
+   VENTANA CENTRAL
+===================================== */
+
+.ventana {
+
+    position: relative;
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    height: 600px;
+
+    margin: 60px auto;
+
+    border-radius: 40px;
+
+    overflow: hidden;
+
+    background: #000;
+
+    box-shadow:
+
+        0 0 30px rgba(255,255,255,0.3),
+
+        0 0 80px rgba(120,180,255,0.5);
+
+}
+
+
+/* =====================================
+   GALAXIA
+===================================== */
+
+.galaxia {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #66518f 0%,
+            #29365d 25%,
+            #10182e 50%,
+            #03050d 80%,
+            #000000 100%
+        );
+
+}
+
+
+.galaxia::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            #b9d8ff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            white 2px,
+            transparent 2px
+        );
+
+    background-size:
+
+        45px 45px,
+
+        75px 75px,
+
+        120px 120px;
+
+    background-position:
+
+        10px 20px,
+
+        30px 50px,
+
+        70px 10px;
+
+    opacity: 0.8;
+
+}
+
+
+/* =====================================
+   ECLIPSE
+===================================== */
+
+.eclipse {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 210px;
+
+    height: 210px;
+
+    border-radius: 50%;
+
+    background: #020205;
+
+    box-shadow:
+
+        0 0 8px white,
+
+        0 0 20px white,
+
+        0 0 40px #bde4ff,
+
+        0 0 70px white,
+
+        0 0 110px
+        rgba(160,210,255,0.8);
+
+    z-index: 30;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+/* =====================================
+   ANILLO DEL ECLIPSE
+===================================== */
+
+.eclipse::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -12px;
+
+    border-radius: 50%;
+
+    border: 8px solid transparent;
+
+    border-top-color: white;
+
+    border-right-color: #bde4ff;
+
+    border-bottom-color: white;
+
+    filter: blur(5px);
+
+    animation: girar 8s linear infinite;
+
+}
+
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =====================================
+   MENSAJE
+===================================== */
+
+.mensaje {
+
+    position: relative;
+
+    z-index: 40;
+
+    width: 170px;
+
+    text-align: center;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    line-height: 1.4;
+
+    text-shadow:
+
+        0 0 5px white,
+
+        0 0 15px #bde4ff;
+
+    transition:
+
+        opacity 0.8s ease,
+
+        transform 0.8s ease;
+
+}
+
+
+/* =====================================
+   TE AMO
+===================================== */
+
+.te-amo {
+
+    position: absolute;
+
+    z-index: 40;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    font-style: italic;
+
+    text-shadow:
+
+        0 0 8px white,
+
+        0 0 20px #bde4ff,
+
+        0 0 40px white;
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+}
+
+
+.eclipse.amor .mensaje {
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+}
+
+
+.eclipse.amor .te-amo {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+/* =====================================
+   ZONA DE AUTOS
+===================================== */
+
+.zona-autos {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================
+   CARRUSEL
+===================================== */
+
+.carrusel {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 70px;
+
+    width: max-content;
+
+    padding: 0 100px;
+
+    cursor: grab;
+
+    user-select: none;
+
+    touch-action: pan-x;
+
+}
+
+
+.carrusel:active {
+
+    cursor: grabbing;
+
+}
+
+
+/* =====================================
+   HOT WHEELS
+===================================== */
+
+.hotwheel {
+
+    width: 180px;
+
+    height: 120px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.hotwheel img {
+
+    width: 180px;
+
+    max-height: 120px;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    filter:
+
+        drop-shadow(
+            0 8px 8px rgba(0,0,0,0.8)
+        )
+
+        drop-shadow(
+            0 0 10px
+            rgba(190,225,255,0.35)
+        );
+
+    transition:
+
+        transform 0.4s ease,
+
+        filter 0.4s ease;
+
+}
+
+
+.hotwheel:hover img {
+
+    transform: scale(1.15);
+
+    filter:
+
+        drop-shadow(
+            0 8px 8px rgba(0,0,0,0.8)
+        )
+
+        drop-shadow(
+            0 0 18px
+            rgba(255,255,255,0.8)
+        );
+
+}
+
+
+/* =====================================
+   FLOTACIÓN
+===================================== */
+
+.hotwheel:nth-child(odd) {
+
+    animation:
+        autoFlota1 4s ease-in-out infinite;
+
+}
+
+
+.hotwheel:nth-child(even) {
+
+    animation:
+        autoFlota2 5s ease-in-out infinite;
+
+}
+
+
+@keyframes autoFlota1 {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(3deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+}
+
+
+@keyframes autoFlota2 {
+
+    0% {
+        transform:
+            translateY(-5px)
+            rotate(3deg);
+    }
+
+    50% {
+        transform:
+            translateY(12px)
+            rotate(-3deg);
+    }
+
+    100% {
+        transform:
+            translateY(-5px)
+            rotate(3deg);
+    }
+
+}
+
+
+/* =====================================
+   INDICADOR
+===================================== */
+
+.indicador {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,255,255,0.7);
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 8px black;
+
+}
+
+
+/* =====================================
+   CELULAR
+===================================== */
+
+@media (max-width: 600px) {
+
+
+    .ventana {
+
+        width: 94%;
+
+        height: 520px;
+
+        margin-top: 40px;
+
+        border-radius: 28px;
+
+    }
+
+
+    .eclipse {
+
+        width: 145px;
+
+        height: 145px;
+
+    }
+
+
+    .mensaje {
+
+        font-size: 14px;
+
+        width: 120px;
+
+    }
+
+
+    .te-amo {
+
+        font-size: 28px;
+
+    }
+
+
+    .carrusel {
+
+        gap: 45px;
+
+        padding: 0 80px;
+
+    }
+
+
+    .hotwheel {
+
+        width: 130px;
+
+        height: 90px;
+
+    }
+
+
+    .hotwheel img {
+
+        width: 130px;
+
+        max-height: 90px;
+
+    }
+
+
+    .indicador {
+
+        bottom: 15px;
+
+        font-size: 10px;
+
+    }
+
+
+    .corazon {
+
+        opacity: 0.35;
+
+    }
+
+}
